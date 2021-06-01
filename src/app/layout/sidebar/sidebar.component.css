@@ -1,0 +1,28 @@
+.nav {
+ background-color: #111;
+ height: 100%;
+ width: 180px;
+ position: fixed;
+ z-index: 1;
+ top: 1;
+ left: 0;
+ overflow-x: hidden;
+ padding-top: 20px;
+}
+
+nav a {
+ margin: 0 20px 10px 20px;
+ color: darkturquoise;
+ text-decoration: none;
+}
+
+nav a:hover {
+ margin: 0 20px 10px 20px;
+ color: cyan;
+ text-decoration: none;
+}
+
+nav .divider {
+ color: darkturquoise;
+ padding: 0 10px 0 10px;
+}
