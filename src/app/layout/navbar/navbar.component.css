@@ -1,3 +1,11 @@
 nav .navbar-brand {
- color: darkgoldenrod;
+ color: gold;
+}
+
+nav .navbar-nav .nav-link {
+ color: #FFF;
+}
+
+nav {
+ background-color: #343B40;
 }
