@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { map } from 'rxjs/operators'
+import { TokenStorageService } from './token-storage.service';
 
 const LOGIN_API = 'https://movie-api-sample.herokuapp.com/api/v1/user/login';
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
 }
 
 @Injectable({
@@ -14,15 +17,17 @@ const httpOptions = {
 })
 export class AuthService {
 
-  isLoggedIn = false;
+  // isLoggedIn = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private token: TokenStorageService) { }
 
   isAuthenticated() {
-    return this.http.get(LOGIN_API);
+    return this.http.get(LOGIN_API);  
   }
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post(LOGIN_API, {username, password}, httpOptions);
+    return this.http.post(LOGIN_API, {username, password}, httpOptions).pipe(map(token => {
+      this.token.saveToken(JSON.stringify(token));
+    }));
   }
 }
