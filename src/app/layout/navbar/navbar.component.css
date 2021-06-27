@@ -9,6 +9,12 @@ nav .navbar-nav .nav-link {
 
 nav .navbar-nav .nav-link:hover {
  cursor: pointer;
+ color: gold;
+}
+
+nav .navbar-nav #logout:hover {
+ cursor: pointer;
+ color: red;
 }
 
 nav {
