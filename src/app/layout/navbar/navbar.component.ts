@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+
+import { MovieListComponent } from 'src/app/components/movie-list/movie-list.component';
+import { TokenStorageService } from 'src/app/service/token-storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +12,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn = false;
+
+  constructor(
+    private token: TokenStorageService, 
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.token.getToken();
+  }
+
+  doLogout(): void {
+    this.token.logout();
+    this.router.navigate(['/login']);
+    window.location.reload();
   }
 
 }
