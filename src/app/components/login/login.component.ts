@@ -34,10 +34,9 @@ export class LoginComponent implements OnInit {
     const { username, password } = this.form;
 
     this.auth.login(username, password).subscribe(data => {
-      this.token.saveToken(data.accessToken);
       this.token.saveUser(data);
-      this.router.navigate(['/dashboard'])
-      console.log('Login Success')
+      this.router.navigate(['/dashboard']);
+      console.log('Login Success');
     })
   }
 }
