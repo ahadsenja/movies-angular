@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
-import { MovieListComponent } from 'src/app/components/movies/movie-list/movie-list.component';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
 
 @Component({
