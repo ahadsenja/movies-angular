@@ -12,6 +12,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { MovieCreateComponent } from './components/movies/movie-create/movie-create.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     MovieListComponent,
     SidebarComponent,
     NavbarComponent,
-    DashboardComponent
+    DashboardComponent,
+    MovieCreateComponent
   ],
   imports: [
     BrowserModule,
