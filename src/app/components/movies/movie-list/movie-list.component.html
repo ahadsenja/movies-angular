@@ -1,0 +1,27 @@
+<div class="container">
+ <table class="table">
+  <thead>
+   <tr>
+    <td>ID</td>
+    <td>Title</td>
+    <td>Author</td>
+    <td>Year</td>
+    <td>Genre</td>
+    <td>Published</td>
+    <td>Image</td>
+   </tr>
+  </thead>
+
+  <tbody>
+   <tr *ngFor="let movie of movies">
+    <td>{{ movie.id }}</td>
+    <td>{{ movie.title }}</td>
+    <td>{{ movie.author }}</td>
+    <td>{{ movie.year }}</td>
+    <td>{{ movie.genre }}</td>
+    <td>{{ movie.published }}</td>
+    <td>{{ movie.image }}</td>
+   </tr>
+  </tbody>
+ </table>
+</div>
