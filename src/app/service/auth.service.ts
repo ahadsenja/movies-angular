@@ -6,13 +6,6 @@ import { TokenStorageService } from './token-storage.service';
 
 const LOGIN_API = 'https://movie-api-sample.herokuapp.com/api/v1/user/login';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': 'Token auth-token'
-  })
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -27,10 +20,13 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }
     return this.http.post(LOGIN_API, {username, password}, httpOptions).pipe(map(token => {
       this.token.saveToken(JSON.stringify(token));
     }));
-  }
-
-  
+  }  
 }
