@@ -8,7 +8,8 @@ const LOGIN_API = 'https://movie-api-sample.herokuapp.com/api/v1/user/login';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Authorization': 'Token auth-token'
   })
 }
 
@@ -30,4 +31,6 @@ export class AuthService {
       this.token.saveToken(JSON.stringify(token));
     }));
   }
+
+  
 }
