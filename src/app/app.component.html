@@ -1,5 +1,11 @@
-<app-navbar></app-navbar>
-<!-- <app-sidebar></app-sidebar> -->
-<div class="container">
-  <router-outlet></router-outlet>
+<app-navbar id="navbar" class="navbar navbar-dark fixed-top bg-dark"></app-navbar>
+
+<div class="container-fluid">
+  <div class="row" id="main-content">
+    <app-sidebar id="sidebar" class="col-md-2 d-none d-sm-block sidebar"></app-sidebar>
+
+    <div class="col-md-10 ms-sm-auto pt3" id="dashboard">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
