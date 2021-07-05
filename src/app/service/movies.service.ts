@@ -18,4 +18,8 @@ export class MoviesService {
   getAll(): Observable<Movie[]> {
     return this.http.get<Movie[]>(`${this.BASE_URL}/api/v1/movie/movies`);
   }
+
+  create(movie: Movie): Observable<Movie> {
+    return this.http.post<Movie>(`${this.BASE_URL}/api/v1/movie/movies`, movie);
+  }
 }
