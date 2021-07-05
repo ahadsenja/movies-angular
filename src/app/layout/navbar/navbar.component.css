@@ -1,22 +1,13 @@
-nav .navbar-brand {
+.navbar-brand {
  color: gold;
+ margin-left: 20px;
 }
 
-nav .navbar-nav .nav-link {
- color: #FFF;
+.navbar-brand:hover {
+ color: #fff;
  cursor: pointer;
 }
 
-nav .navbar-nav .nav-link:hover {
- cursor: pointer;
- color: gold;
-}
-
-nav .navbar-nav #logout:hover {
- cursor: pointer;
- color: red;
-}
-
-nav {
+/* nav {
  background-color: #343B40;
-}
+} */
