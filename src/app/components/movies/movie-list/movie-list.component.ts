@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { faTrashAlt, faPenAlt } from '@fortawesome/free-solid-svg-icons';
+
 import { Movie } from 'src/app/models/movie';
 import { MoviesService } from 'src/app/service/movies.service';
 
@@ -9,6 +11,9 @@ import { MoviesService } from 'src/app/service/movies.service';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
+
+  faTrashAlt = faTrashAlt
+  faPenAlt = faPenAlt
 
   movies: Movie[] = [];
 
