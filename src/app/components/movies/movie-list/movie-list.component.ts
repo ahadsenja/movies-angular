@@ -12,8 +12,8 @@ import { MoviesService } from 'src/app/service/movies.service';
 })
 export class MovieListComponent implements OnInit {
 
-  faTrashAlt = faTrashAlt
-  faPenAlt = faPenAlt
+  trashAlt = faTrashAlt
+  penAlt = faPenAlt
 
   movies: Movie[] = [];
 
