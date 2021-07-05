@@ -1,6 +1,19 @@
-<nav class="nav flex-column">
- <a href="/dashboard" routerLink="dashboard">Dashboard</a>
- <a href="/">Movies</a>
- <div class="divider"><hr></div>
- <a href="/">Logout</a>
-</nav>
+<ul class="nav nav-pills flex-column">
+ <li class="nav-item">
+  <a class="nav-link" routerLink="/dashboard">
+   <fa-icon [icon]="tachometer"></fa-icon> Dashboard
+  </a>
+ </li>
+
+ <li class="nav-item">
+  <a class="nav-link" routerLink="/movies">
+   <fa-icon [icon]="database"></fa-icon> Movies
+  </a>
+ </li>
+
+ <li class="nav-item">
+  <a id="logout" class="nav-link" routerLink="/logout">
+   <fa-icon [icon]="signOut"></fa-icon> Logout
+  </a>
+ </li>
+</ul>
