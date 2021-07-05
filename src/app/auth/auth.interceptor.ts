@@ -23,7 +23,7 @@ export class AuthInterceptor implements HttpInterceptor {
     if (authToken) {
       const authReq = request.clone({
         headers: request.headers.set(
-          'Authorization', `Token ${authToken.token}`
+          'Authorization', `Token ${authToken.token}`,
         )
       });
   
