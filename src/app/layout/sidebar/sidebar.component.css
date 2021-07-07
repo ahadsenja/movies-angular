@@ -11,3 +11,10 @@
  bottom: 0;
  padding-bottom: 30px;
 }
+
+.nav #logout:hover {
+ position: absolute;
+ bottom: 0;
+ padding-bottom: 30px;
+ cursor: pointer;
+}
