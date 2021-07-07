@@ -30,12 +30,12 @@
     <td>{{ movie.published }}</td>
     <td><img [src]="movie.image" /></td>
     <td>
-     <a class="btn btn-warning btn-sm" (click)="onDeleteMovie(movie)">
-      <fa-icon [icon]="trashAlt"></fa-icon>
+     <a class="btn btn-warning btn-sm" (click)="onSelectMovie(movie.id)">
+      <fa-icon [icon]="penAlt"></fa-icon>
      </a>
      <span style="margin-left: 8px;"></span>
-     <a class="btn btn-danger btn-sm">
-      <fa-icon [icon]="penAlt"></fa-icon>
+     <a class="btn btn-danger btn-sm" (click)="onDeleteMovie(movie)">
+      <fa-icon [icon]="trashAlt"></fa-icon>
      </a>
     </td>
    </tr>
