@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -15,6 +15,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { MovieCreateComponent } from './components/movies/movie-create/movie-create.component';
 import { RegisterComponent } from './components/user/register/register.component';
+import { MovieUpdateComponent } from './components/movies/movie-update/movie-update.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +26,16 @@ import { RegisterComponent } from './components/user/register/register.component
     NavbarComponent,
     DashboardComponent,
     MovieCreateComponent,
-    RegisterComponent
+    RegisterComponent,
+    MovieUpdateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthGuard,
