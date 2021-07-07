@@ -22,4 +22,8 @@ export class MoviesService {
   create(movie: Movie): Observable<Movie> {
     return this.http.post<Movie>(`${this.BASE_URL}/api/v1/movie/movies`, movie);
   }
+
+  delete(movie: Movie): Observable<Movie> {
+    return this.http.delete<Movie>(`${this.BASE_URL}/api/v1/movie/movies/${movie.id}`)
+  }
 }
