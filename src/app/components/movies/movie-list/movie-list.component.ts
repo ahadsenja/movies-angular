@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { 
   faTrashAlt, faPenAlt, faPlusSquare
@@ -21,7 +22,8 @@ export class MovieListComponent implements OnInit {
   movies: Movie[] = [];
 
   constructor(
-    private movieService: MoviesService, 
+    private movieService: MoviesService,
+    private router: Router 
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +44,10 @@ export class MovieListComponent implements OnInit {
       this.movies = this.movies.filter(id => id !== movie);
       console.log(response);
     })
+  }
+
+  onSelectMovie(id: number): void {
+    this.router.navigate(['/movies/edit', id])
   }
 
 }
