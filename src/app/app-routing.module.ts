@@ -15,6 +15,7 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'movies', component: MovieListComponent, canActivate: [AuthGuard]},
   {path: 'movies/create', component: MovieCreateComponent, canActivate: [AuthGuard]},
+  {path: 'movies/edit/:id', component: MovieCreateComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
