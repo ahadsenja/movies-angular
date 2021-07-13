@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { MoviesService } from 'src/app/service/movies.service';
 import { Movie } from 'src/app/models/movie';
@@ -24,41 +24,41 @@ export class MovieCreateComponent implements OnInit {
 
   submitted = false;
 
-  createMovieForm = new FormGroup({});
+  movieFormGroupCreate = new FormGroup({});
 
   constructor(
     private movieService: MoviesService,
     private router: Router,
     public formBuilder: FormBuilder
   ) {
-    this.createMovieForm = this.formBuilder.group({
+    this.movieFormGroupCreate = this.formBuilder.group({
       title: [''],
       author: [''],
       year: [null],
       genre: [''],
       published: [false],
-      image: [''],
+      image: [null],
     })
-   }
+  }
 
-   onSelectedFile(event: any) {
-     const file = event.target.files[0];
-     this.createMovieForm.patchValue({
-       image: file
-     })
-     this.createMovieForm.get('image')?.updateValueAndValidity;
-   }
+  onSelectedFile(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.movieFormGroupCreate.get('image')?.setValue(file);
+    }
+  }
 
   ngOnInit(): void {
   }
 
   onCreateMovie(): void {
     let formData: any = new FormData();
-    formData.append('title', this.createMovieForm.get('title')?.value)
-    formData.append('author', this.createMovieForm.get('author')?.value)
-    formData.append('year', this.createMovieForm.get('year')?.value)
-    formData.append('genre', this.createMovieForm.get('genre')?.value)
-    formData.append('image', this.createMovieForm.get('image')?.value)
+    formData.append('title', this.movieFormGroupCreate.get('title')?.value)
+    formData.append('author', this.movieFormGroupCreate.get('author')?.value)
+    formData.append('year', this.movieFormGroupCreate.get('year')?.value)
+    formData.append('genre', this.movieFormGroupCreate.get('genre')?.value)
+    formData.append('published', this.movieFormGroupCreate.get('published')?.value)
+    formData.append('image', this.movieFormGroupCreate.get('image')?.value)
 
     this.movieService.create(formData).subscribe(response => {
       console.log(response)
@@ -69,14 +69,7 @@ export class MovieCreateComponent implements OnInit {
   }
 
   onCancel() {
-    this.id = 0;
-    this.title = '';
-    this.author = '';
-    this.year = 0;
-    this.genre = '';
-    this.published = false;
-    this.image = '';
-    this.router.navigate(['/movies'])
+    this.router.navigate(['/movies']);
   }
 
 }
