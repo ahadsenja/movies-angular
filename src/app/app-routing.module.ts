@@ -7,15 +7,17 @@ import { RegisterComponent } from './components/user/register/register.component
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MovieListComponent } from './components/movies/movie-list/movie-list.component';
 import { MovieCreateComponent } from './components/movies/movie-create/movie-create.component';
+import { MovieUpdateComponent } from './components/movies/movie-update/movie-update.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
-  {path: 'movies', component: MovieListComponent, canActivate: [AuthGuard]},
-  {path: 'movies/create', component: MovieCreateComponent, canActivate: [AuthGuard]},
-  {path: 'movies/edit/:id', component: MovieCreateComponent, canActivate: [AuthGuard]},
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'movies', component: MovieListComponent, canActivate: [AuthGuard] },
+  { path: 'movies/create', component: MovieCreateComponent, canActivate: [AuthGuard] },
+  { path: 'movies/edit/:id', component: MovieUpdateComponent, canActivate: [AuthGuard] },
+
 ];
 
 @NgModule({
