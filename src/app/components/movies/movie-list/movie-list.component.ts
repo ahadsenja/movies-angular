@@ -46,7 +46,7 @@ export class MovieListComponent implements OnInit {
     })
   }
 
-  onSelectMovie(id: number): void {
+  onSelectedMovie(id: number): void {
     this.router.navigate(['/movies/edit', id])
   }
 
