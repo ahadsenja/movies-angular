@@ -5,6 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,7 +39,8 @@ import { MovieUpdateComponent } from './components/movies/movie-update/movie-upd
     HttpClientModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ],
   providers: [
     AuthGuard,
