@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/user/login/login.component';
@@ -27,7 +29,7 @@ import { MovieUpdateComponent } from './components/movies/movie-update/movie-upd
     DashboardComponent,
     MovieCreateComponent,
     RegisterComponent,
-    MovieUpdateComponent
+    MovieUpdateComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { MovieUpdateComponent } from './components/movies/movie-update/movie-upd
     FormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     AuthGuard,
