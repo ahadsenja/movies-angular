@@ -28,6 +28,8 @@ export class MovieListComponent implements OnInit {
   movies: Movie[] = [];
 
   searchText: string = '';
+  p: number = 1;
+  pageCount: number = 10;
 
   constructor(
     private movieService: MoviesService,
