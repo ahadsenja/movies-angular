@@ -14,3 +14,11 @@
  background-color: black;
  box-shadow: 0 4x 5x rgba(0,0,0,0.2) 0 4x 4x rgba(0,0,0,0.26);
 }
+
+.footer {
+ color: grey;
+ bottom: 0;
+ padding: 20px 20px 0 0;
+ font-size: 12px;
+ text-align: right;
+}
