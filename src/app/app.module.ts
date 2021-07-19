@@ -19,6 +19,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { MovieCreateComponent } from './components/movies/movie-create/movie-create.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { MovieUpdateComponent } from './components/movies/movie-update/movie-update.component';
+import { MoviesDetailComponent } from './components/movies/movies-detail/movies-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MovieUpdateComponent } from './components/movies/movie-update/movie-upd
     MovieCreateComponent,
     RegisterComponent,
     MovieUpdateComponent,
+    MoviesDetailComponent,
   ],
   imports: [
     BrowserModule,
