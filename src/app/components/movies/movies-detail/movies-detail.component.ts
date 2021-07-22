@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-movies-detail',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviesDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input() modal_title: any;
+  @Input() modal_content: any;
+
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
   }
