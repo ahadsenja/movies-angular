@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalDismissReasons, NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 import { Movie } from 'src/app/models/movie';
 import { MoviesService } from 'src/app/service/movies.service';
@@ -11,6 +12,7 @@ import {
   faEye, 
   faSearch
 } from '@fortawesome/free-solid-svg-icons';
+import { MoviesDetailComponent } from '../movies-detail/movies-detail.component';
 
 @Component({
   selector: 'app-movie-list',
@@ -18,6 +20,9 @@ import {
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
+  title = 'Movie Detail'
+  closeResult: string = '';
+  modalOptions: NgbModalOptions;
 
   trashAlt = faTrashAlt
   penAlt = faPenAlt
@@ -33,8 +38,14 @@ export class MovieListComponent implements OnInit {
 
   constructor(
     private movieService: MoviesService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private modalService: NgbModal
+  ) { 
+    this.modalOptions = {
+      backdrop: 'static',
+      backdropClass: 'customBackdrop'
+    }
+  }
 
   ngOnInit(): void {
     this.onGetMovies();
@@ -60,4 +71,9 @@ export class MovieListComponent implements OnInit {
     this.router.navigate(['/movies/edit', id])
   }
 
+  open() {
+    const modalRef = this.modalService.open(MoviesDetailComponent);
+    modalRef.componentInstance.modal_title = 'Movie Detail';
+    modalRef.componentInstance.modal_content = 'Movie Content'
+  }
 }
