@@ -20,13 +20,12 @@ export class AuthInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     const authToken = JSON.parse(this.token.getToken());
 
-    if (authToken) {
+    if (authToken !== null) {
       const authReq = request.clone({
         headers: request.headers.set(
           'Authorization', `Token ${authToken.token}`,
         )
       });
-  
       return next.handle(authReq);
     } else {
       return next.handle(request);
