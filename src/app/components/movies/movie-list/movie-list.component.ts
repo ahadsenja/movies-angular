@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 import { Movie } from 'src/app/models/movie';
 import { MoviesService } from 'src/app/service/movies.service';
+import { MoviesDetailComponent } from '../movies-detail/movies-detail.component';
 
 import { 
   faTrashAlt, 
@@ -12,7 +13,7 @@ import {
   faEye, 
   faSearch
 } from '@fortawesome/free-solid-svg-icons';
-import { MoviesDetailComponent } from '../movies-detail/movies-detail.component';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-movie-list',
@@ -39,6 +40,7 @@ export class MovieListComponent implements OnInit {
   constructor(
     private movieService: MoviesService,
     private router: Router,
+    private route: ActivatedRoute,
     private modalService: NgbModal
   ) { 
     this.modalOptions = {
@@ -71,9 +73,11 @@ export class MovieListComponent implements OnInit {
     this.router.navigate(['/movies/edit', id])
   }
 
-  open() {
+  open(id: number) {
     const modalRef = this.modalService.open(MoviesDetailComponent);
     modalRef.componentInstance.modal_title = 'Movie Detail';
-    modalRef.componentInstance.modal_content = 'Movie Content'
+    modalRef.componentInstance.modal_content = this.movieService.getById(id).subscribe(data => {
+      console.log(data)
+    });
   }
 }
