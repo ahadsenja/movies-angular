@@ -22,7 +22,6 @@ export class AppComponent {
     if (this.token.getToken() !== null) {
       this.isLoggedIn = true;
       const token = this.token.getToken()
-      console.log(token)
     }
   }
 }
