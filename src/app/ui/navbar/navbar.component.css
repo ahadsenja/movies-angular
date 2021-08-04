@@ -1,0 +1,13 @@
+.navbar-brand {
+ color: gold;
+ margin-left: 20px;
+}
+
+.navbar-brand:hover {
+ color: #fff;
+ cursor: pointer;
+}
+
+nav {
+ background-color: #343B40;
+}
