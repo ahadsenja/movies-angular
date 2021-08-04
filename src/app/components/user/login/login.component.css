@@ -7,10 +7,18 @@ button {
  margin-top: 10px;
 }
 
-.login-form {
- display: flex;
+.container {
  flex: 1;
  justify-content: center;
  align-items: center;
- margin-top: 30px;
+ margin: 150px 0 0 -100px;
+}
+
+.login-form {
+ box-shadow: black;
+ border: 1px solid rgb(214, 214, 214);
+ border-radius: 10px;
+ padding: 48px;
+ width: 400px;
+ margin: auto;
 }
