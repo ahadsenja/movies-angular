@@ -8,32 +8,37 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { AuthGuard } from './auth/auth.guard';
+import { AuthInterceptor } from './auth/auth.interceptor';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/user/login/login.component';
-import { MovieListComponent } from './components/movies/movie-list/movie-list.component';
-import { SidebarComponent } from './layout/sidebar/sidebar.component';
-import { NavbarComponent } from './layout/navbar/navbar.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { AuthGuard } from './auth/auth.guard';
-import { AuthInterceptor } from './auth/auth.interceptor';
-import { MovieCreateComponent } from './components/movies/movie-create/movie-create.component';
 import { RegisterComponent } from './components/user/register/register.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+import { MovieListComponent } from './components/movies/movie-list/movie-list.component';
+import { MovieCreateComponent } from './components/movies/movie-create/movie-create.component';
 import { MovieUpdateComponent } from './components/movies/movie-update/movie-update.component';
 import { MoviesDetailComponent } from './components/movies/movies-detail/movies-detail.component';
+
+import { NavbarComponent } from './ui/navbar/navbar.component';
+import { SidebarComponent } from './ui/sidebar/sidebar.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MovieListComponent,
-    SidebarComponent,
-    NavbarComponent,
     DashboardComponent,
     MovieCreateComponent,
     RegisterComponent,
     MovieUpdateComponent,
     MoviesDetailComponent,
+    NavbarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,7 @@ import { MoviesDetailComponent } from './components/movies/movies-detail/movies-
     ReactiveFormsModule,
     Ng2SearchPipeModule,
     NgxPaginationModule,
-    NgbModule
+    NgbModule,
   ],
   entryComponents: [
     MoviesDetailComponent
