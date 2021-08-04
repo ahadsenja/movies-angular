@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
+
 import { TokenStorageService } from './token-storage.service';
 
 const LOGIN_API = 'https://movie-api-sample.herokuapp.com/api/v1/user/login';
@@ -11,7 +12,11 @@ const LOGIN_API = 'https://movie-api-sample.herokuapp.com/api/v1/user/login';
 })
 export class AuthService {
 
-  // isLoggedIn = false;
+  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  get isLoggedIn() {
+    return this.loggedIn.asObservable();
+  }
 
   constructor(private http: HttpClient, private token: TokenStorageService) { }
 
