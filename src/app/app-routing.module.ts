@@ -11,12 +11,12 @@ import { MovieUpdateComponent } from './components/movies/movie-update/movie-upd
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'movies', component: MovieListComponent, canActivate: [AuthGuard] },
   { path: 'movies/create', component: MovieCreateComponent, canActivate: [AuthGuard] },
-  { path: 'movies/edit/:id', component: MovieUpdateComponent, canActivate: [AuthGuard] },
+  { path: 'movies/edit/:id', component: MovieUpdateComponent, canActivate: [AuthGuard] }
 
 ];
 
