@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 import { Movie } from 'src/app/models/movie';
@@ -13,7 +13,6 @@ import {
   faEye, 
   faSearch
 } from '@fortawesome/free-solid-svg-icons';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-movie-list',
@@ -40,7 +39,6 @@ export class MovieListComponent implements OnInit {
   constructor(
     private movieService: MoviesService,
     private router: Router,
-    private route: ActivatedRoute,
     private modalService: NgbModal
   ) { 
     this.modalOptions = {
@@ -55,7 +53,7 @@ export class MovieListComponent implements OnInit {
 
   onGetMovies() {
     this.movieService.getAll().subscribe(movies => {
-      this.movies = movies;
+      this.movies = movies.results
       console.log(movies);
     }, error => {
       console.log(error);
