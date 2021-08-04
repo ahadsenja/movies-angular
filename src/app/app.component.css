@@ -1,16 +1,10 @@
 #sidebar {
+ background-color: #343B40;
  height: 100%;
- width: 16%;
- padding-top: 80px;
  position: fixed;
- background-color: #111;
+ padding-top: 80px;
 }
 
 #dashboard {
- margin-top: 70px;
-}
-
-#navbar {
- background-color: black;
- box-shadow: 0 4x 5x rgba(0,0,0,0.2) 0 4x 4x rgba(0,0,0,0.26);
+ padding-top: 80px;
 }
