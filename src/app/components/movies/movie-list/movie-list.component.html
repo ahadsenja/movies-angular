@@ -34,7 +34,7 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let movie of movies | filter: searchText | paginate: {itemsPerPage: pageCount, currentPage: p}">
+      <tr *ngFor="let movie of movies | filter: searchText">
         <td>{{ movie.id }}</td>
         <td>{{ movie.title }}</td>
         <td>{{ movie.author }}</td>
@@ -56,8 +56,26 @@
       </tr>
     </tbody>
   </table>
+
+  <nav aria-label="...">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" tabindex="-1" aria-disabled="true" (click)="fetchPrevious()">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item active" aria-current="page">
+        <a class="page-link" href="#">2</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" (click)="fetchNext()">Next</a>
+      </li>
+    </ul>
+  </nav>
   
-  <div class="text-right">
+  <!-- <div class="text-right">
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
-  </div>
+  </div> -->
+
+  <!-- | paginate: {itemsPerPage: pageCount, currentPage: p} -->
 </div>
