@@ -20,6 +20,7 @@ import {
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
+
   title = 'Movie Detail'
   closeResult: string = '';
   modalOptions: NgbModalOptions;
@@ -30,11 +31,15 @@ export class MovieListComponent implements OnInit {
   eye = faEye
   search = faSearch
 
-  movies: Movie[] = [];
+  movies: Movie[] = []
 
-  searchText: string = '';
-  p: number = 1;
-  pageCount: number = 10;
+  searchText: string = ''
+
+  moviesUrl = 'https://movie-api-sample.herokuapp.com/api/v1/movie/movies'
+  next: string = ''
+  previous: string = ''
+  // p: number = 1;
+  // pageCount: number = 10;
 
   constructor(
     private movieService: MoviesService,
@@ -48,16 +53,31 @@ export class MovieListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.onGetMovies();
+    this.onGetMovies(this.moviesUrl);
   }
 
-  onGetMovies() {
-    this.movieService.getAll().subscribe(movies => {
+  onGetMovies(url: string) {
+    this.movieService.getAll(url).subscribe(movies => {
       this.movies = movies.results
+      if (movies.next) {
+        this.next = movies.next
+      }
+
+      if (movies.previous) {
+        this.previous = movies.previous
+      }
       console.log(movies);
     }, error => {
       console.log(error);
     })
+  }
+
+  fetchNext() {
+    this.onGetMovies(this.next)
+  }
+
+  fetchPrevious() {
+    this.onGetMovies(this.previous)
   }
 
   onDeleteMovie(movie: Movie): void {
