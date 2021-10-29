@@ -6,6 +6,8 @@ import { Movie } from 'src/app/models/movie';
 import { MoviesService } from 'src/app/service/movies.service';
 import { MoviesDetailComponent } from '../movies-detail/movies-detail.component';
 
+import { Api } from 'src/app/config/api/api';
+
 import { 
   faTrashAlt, 
   faPenAlt, 
@@ -21,7 +23,7 @@ import {
 })
 export class MovieListComponent implements OnInit {
 
-  title = 'Movie Detail'
+  title = 'Movie Detail';
   closeResult: string = '';
   modalOptions: NgbModalOptions;
 
@@ -54,6 +56,7 @@ export class MovieListComponent implements OnInit {
 
   ngOnInit(): void {
     this.onGetMovies(this.moviesUrl);
+    console.log(Api)
   }
 
   onGetMovies(url: string) {
